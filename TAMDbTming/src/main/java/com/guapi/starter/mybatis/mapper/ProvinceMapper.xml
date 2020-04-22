@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.guapi.starter.mybatis.dao.ProvinceMapper">
+  <resultMap id="BaseResultMap" type="com.guapi.starter.mybatis.entity.Province">
+    <id column="regnCode" jdbcType="VARCHAR" property="regncode" />
+    <result column="regnNm" jdbcType="VARCHAR" property="regnnm" />
+    <result column="regnFullPinyin" jdbcType="VARCHAR" property="regnfullpinyin" />
+    <result column="regnLvlCd" jdbcType="SMALLINT" property="regnlvlcd" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    regnCode, regnNm, regnFullPinyin, regnLvlCd
+  </sql>
+  <select id="selectByExample" parameterType="com.guapi.starter.mybatis.entity.ProvinceExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    from province
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from province
+    where regnCode = #{regncode,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from province
+    where regnCode = #{regncode,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.guapi.starter.mybatis.entity.Province">
+    insert into province (regnCode, regnNm, regnFullPinyin, 
+      regnLvlCd)
+    values (#{regncode,jdbcType=VARCHAR}, #{regnnm,jdbcType=VARCHAR}, #{regnfullpinyin,jdbcType=VARCHAR}, 
+      #{regnlvlcd,jdbcType=SMALLINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.guapi.starter.mybatis.entity.Province">
+    insert into province
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="regncode != null">
+        regnCode,
+      </if>
+      <if test="regnnm != null">
+        regnNm,
+      </if>
+      <if test="regnfullpinyin != null">
+        regnFullPinyin,
+      </if>
+      <if test="regnlvlcd != null">
+        regnLvlCd,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="regncode != null">
+        #{regncode,jdbcType=VARCHAR},
+      </if>
+      <if test="regnnm != null">
+        #{regnnm,jdbcType=VARCHAR},
+      </if>
+      <if test="regnfullpinyin != null">
+        #{regnfullpinyin,jdbcType=VARCHAR},
+      </if>
+      <if test="regnlvlcd != null">
+        #{regnlvlcd,jdbcType=SMALLINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.guapi.starter.mybatis.entity.Province">
+    update province
+    <set>
+      <if test="regnnm != null">
+        regnNm = #{regnnm,jdbcType=VARCHAR},
+      </if>
+      <if test="regnfullpinyin != null">
+        regnFullPinyin = #{regnfullpinyin,jdbcType=VARCHAR},
+      </if>
+      <if test="regnlvlcd != null">
+        regnLvlCd = #{regnlvlcd,jdbcType=SMALLINT},
+      </if>
+    </set>
+    where regnCode = #{regncode,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.guapi.starter.mybatis.entity.Province">
+    update province
+    set regnNm = #{regnnm,jdbcType=VARCHAR},
+      regnFullPinyin = #{regnfullpinyin,jdbcType=VARCHAR},
+      regnLvlCd = #{regnlvlcd,jdbcType=SMALLINT}
+    where regnCode = #{regncode,jdbcType=VARCHAR}
+  </update>
+</mapper>

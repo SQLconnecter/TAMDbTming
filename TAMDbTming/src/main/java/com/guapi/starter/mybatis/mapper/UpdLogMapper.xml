@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.guapi.starter.mybatis.dao.UpdLogMapper">
+  <resultMap id="BaseResultMap" type="com.guapi.starter.mybatis.entity.UpdLog">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="data_source" jdbcType="INTEGER" property="dataSource" />
+    <result column="num" jdbcType="INTEGER" property="num" />
+    <result column="rq_start" jdbcType="TIMESTAMP" property="rqStart" />
+    <result column="rq_end" jdbcType="TIMESTAMP" property="rqEnd" />
+    <result column="mq_flag" jdbcType="INTEGER" property="mqFlag" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, data_source, num, rq_start, rq_end, mq_flag
+  </sql>
+  <select id="selectByExample" parameterType="com.guapi.starter.mybatis.entity.UpdLogExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    from upd_log
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from upd_log
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from upd_log
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.guapi.starter.mybatis.entity.UpdLog">
+    insert into upd_log (id, data_source, num, 
+      rq_start, rq_end, mq_flag
+      )
+    values (#{id,jdbcType=INTEGER}, #{dataSource,jdbcType=INTEGER}, #{num,jdbcType=INTEGER}, 
+      #{rqStart,jdbcType=TIMESTAMP}, #{rqEnd,jdbcType=TIMESTAMP}, #{mqFlag,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.guapi.starter.mybatis.entity.UpdLog">
+    insert into upd_log
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="dataSource != null">
+        data_source,
+      </if>
+      <if test="num != null">
+        num,
+      </if>
+      <if test="rqStart != null">
+        rq_start,
+      </if>
+      <if test="rqEnd != null">
+        rq_end,
+      </if>
+      <if test="mqFlag != null">
+        mq_flag,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="dataSource != null">
+        #{dataSource,jdbcType=INTEGER},
+      </if>
+      <if test="num != null">
+        #{num,jdbcType=INTEGER},
+      </if>
+      <if test="rqStart != null">
+        #{rqStart,jdbcType=TIMESTAMP},
+      </if>
+      <if test="rqEnd != null">
+        #{rqEnd,jdbcType=TIMESTAMP},
+      </if>
+      <if test="mqFlag != null">
+        #{mqFlag,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.guapi.starter.mybatis.entity.UpdLog">
+    update upd_log
+    <set>
+      <if test="dataSource != null">
+        data_source = #{dataSource,jdbcType=INTEGER},
+      </if>
+      <if test="num != null">
+        num = #{num,jdbcType=INTEGER},
+      </if>
+      <if test="rqStart != null">
+        rq_start = #{rqStart,jdbcType=TIMESTAMP},
+      </if>
+      <if test="rqEnd != null">
+        rq_end = #{rqEnd,jdbcType=TIMESTAMP},
+      </if>
+      <if test="mqFlag != null">
+        mq_flag = #{mqFlag,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.guapi.starter.mybatis.entity.UpdLog">
+    update upd_log
+    set data_source = #{dataSource,jdbcType=INTEGER},
+      num = #{num,jdbcType=INTEGER},
+      rq_start = #{rqStart,jdbcType=TIMESTAMP},
+      rq_end = #{rqEnd,jdbcType=TIMESTAMP},
+      mq_flag = #{mqFlag,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

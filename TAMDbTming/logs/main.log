@@ -1,0 +1,54 @@
+2020-04-22 20:04:12.726  INFO 16652 --- [main] com.guapi.starter.TamDbTmingApplication  : Starting TamDbTmingApplication on DESKTOP-7S2S8M2 with PID 16652 (F:\stsWorkspace\TAMDbTming\target\classes started by Neo in F:\stsWorkspace\TAMDbTming)
+2020-04-22 20:04:12.732  INFO 16652 --- [main] com.guapi.starter.TamDbTmingApplication  : No active profile set, falling back to default profiles: default
+2020-04-22 20:04:16.418  INFO 16652 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-04-22 20:04:16.419  INFO 16652 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.33]
+2020-04-22 20:04:16.659  INFO 16652 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-04-22 20:04:17.007  INFO 16652 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-04-22 20:04:17.267  INFO 16652 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.12.Final
+2020-04-22 20:04:17.659  INFO 16652 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-04-22 20:04:17.995  INFO 16652 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-04-22 20:04:18.002  WARN 16652 --- [main] com.zaxxer.hikari.util.DriverDataSource  : Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2020-04-22 20:04:18.379  INFO 16652 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-04-22 20:04:18.462  INFO 16652 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2020-04-22 20:04:19.025  INFO 16652 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-04-22 20:04:20.100  INFO 16652 --- [main] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2020-04-22 20:04:20.219  INFO 16652 --- [cluster-ClusterId{value='5ea032c4aef6ae25cfeb7031', description='null'}-localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:1, serverValue:165}] to localhost:27017
+2020-04-22 20:04:20.231  INFO 16652 --- [cluster-ClusterId{value='5ea032c4aef6ae25cfeb7031', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 2, 1]}, minWireVersion=0, maxWireVersion=8, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=8788999}
+2020-04-22 20:04:22.054  INFO 16652 --- [main] c.g.s.c.ScheduingConfiguration           : 开始注册定时任务
+2020-04-22 20:04:22.142  INFO 16652 --- [main] com.guapi.starter.TamDbTmingApplication  : Started TamDbTmingApplication in 10.585 seconds (JVM running for 11.684)
+2020-04-22 20:06:00.001  INFO 16652 --- [pool-1-thread-1] c.g.s.scheduler.MainSchedulerThread      : 定时任务主线程启动====================》
+2020-04-22 20:06:00.503  INFO 16652 --- [pool-1-thread-1] com.guapi.starter.thread.SoapThread      : 开始从网页上面获取数据：:::::::::start:::::::
+2020-04-22 20:06:00.509  INFO 16652 --- [pool-1-thread-1] com.guapi.starter.thread.SoapThread      : 订阅的城市有：{henan=[411300, 410100]}
+2020-04-22 20:06:00.509  INFO 16652 --- [pool-1-thread-1] com.guapi.starter.thread.SoapThread      : {411300=https://www.shanxiangjiaoyu.com//selectZxAll2?&provCode=henan&secondType=100101&thirdType=10010101&cityCode=411300&page=1&limit=10, 410100=https://www.shanxiangjiaoyu.com//selectZxAll2?&provCode=henan&secondType=100101&thirdType=10010101&cityCode=410100&page=1&limit=10}
+2020-04-22 20:06:00.512  INFO 16652 --- [pool-1-thread-1] com.guapi.starter.thread.SoapThread      : 发送请求：https://www.shanxiangjiaoyu.com//selectZxAll2?&provCode=henan&secondType=100101&thirdType=10010101&cityCode=411300&page=1&limit=10
+2020-04-22 20:06:01.745  INFO 16652 --- [pool-1-thread-1] com.guapi.starter.thread.SoapThread      : ---------------------
+2020-04-22 20:06:01.746  INFO 16652 --- [pool-1-thread-1] com.guapi.starter.thread.SoapThread      : 2020042193907
+2020-04-22 20:06:01.746  INFO 16652 --- [pool-1-thread-1] com.guapi.starter.thread.SoapThread      : 2020042093864
+2020-04-22 20:06:01.747  INFO 16652 --- [pool-1-thread-1] com.guapi.starter.thread.SoapThread      : 2020041593550
+2020-04-22 20:06:01.747  INFO 16652 --- [pool-1-thread-1] com.guapi.starter.thread.SoapThread      : 2020040293341
+2020-04-22 20:06:01.747  INFO 16652 --- [pool-1-thread-1] com.guapi.starter.thread.SoapThread      : 2020032392945
+2020-04-22 20:06:01.747  INFO 16652 --- [pool-1-thread-1] com.guapi.starter.thread.SoapThread      : 2020030592709
+2020-04-22 20:06:01.747  INFO 16652 --- [pool-1-thread-1] com.guapi.starter.thread.SoapThread      : 2019121691417
+2020-04-22 20:06:01.748  INFO 16652 --- [pool-1-thread-1] com.guapi.starter.thread.SoapThread      : 2019121691406
+2020-04-22 20:06:01.748  INFO 16652 --- [pool-1-thread-1] com.guapi.starter.thread.SoapThread      : 2019120691158
+2020-04-22 20:06:01.748  INFO 16652 --- [pool-1-thread-1] com.guapi.starter.thread.SoapThread      : 2019112590881
+2020-04-22 20:06:01.748  INFO 16652 --- [pool-1-thread-1] com.guapi.starter.thread.SoapThread      : 发送请求：https://www.shanxiangjiaoyu.com//selectZxAll2?&provCode=henan&secondType=100101&thirdType=10010101&cityCode=410100&page=1&limit=10
+2020-04-22 20:06:02.149  INFO 16652 --- [pool-1-thread-1] com.guapi.starter.thread.SoapThread      : ---------------------
+2020-04-22 20:06:02.150  INFO 16652 --- [pool-1-thread-1] com.guapi.starter.thread.SoapThread      : 2020042293984
+2020-04-22 20:06:02.153  INFO 16652 --- [pool-1-thread-1] com.guapi.starter.thread.SoapThread      : 2020042193959
+2020-04-22 20:06:02.153  INFO 16652 --- [pool-1-thread-1] com.guapi.starter.thread.SoapThread      : 2020041593552
+2020-04-22 20:06:02.154  INFO 16652 --- [pool-1-thread-1] com.guapi.starter.thread.SoapThread      : 2020041193533
+2020-04-22 20:06:02.155  INFO 16652 --- [pool-1-thread-1] com.guapi.starter.thread.SoapThread      : 2020040393387
+2020-04-22 20:06:02.155  INFO 16652 --- [pool-1-thread-1] com.guapi.starter.thread.SoapThread      : 2020033193259
+2020-04-22 20:06:02.155  INFO 16652 --- [pool-1-thread-1] com.guapi.starter.thread.SoapThread      : 2020032793190
+2020-04-22 20:06:02.156  INFO 16652 --- [pool-1-thread-1] com.guapi.starter.thread.SoapThread      : 2020032693163
+2020-04-22 20:06:02.157  INFO 16652 --- [pool-1-thread-1] com.guapi.starter.thread.SoapThread      : 2020032493122
+2020-04-22 20:06:02.157  INFO 16652 --- [pool-1-thread-1] com.guapi.starter.thread.SoapThread      : 2020032392845
+2020-04-22 20:06:02.158  INFO 16652 --- [pool-1-thread-1] com.guapi.starter.thread.SoapThread      : 本次从网页上获取信息花费时间：1654
+2020-04-22 20:06:02.161  INFO 16652 --- [pool-1-thread-1] com.guapi.starter.thread.MongoDbThread   : -----------------获取mongo中的订阅的数据--------starter------
+2020-04-22 20:06:02.360  INFO 16652 --- [pool-1-thread-1] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:2, serverValue:166}] to localhost:27017
+2020-04-22 20:06:02.402  INFO 16652 --- [pool-1-thread-1] com.guapi.starter.thread.MongoDbThread   : 从mongo中获取的主键有：20
+2020-04-22 20:06:02.403  INFO 16652 --- [pool-1-thread-1] com.guapi.starter.thread.MongoDbThread   : 本次从mongo上获取信息花费时间：241
+2020-04-22 20:06:02.561  INFO 16652 --- [pool-1-thread-1] c.g.s.scheduler.MainSchedulerThread      : ====updlog记录表生成成功===============
+2020-04-22 20:06:02.563  INFO 16652 --- [pool-1-thread-1] c.g.s.scheduler.MainSchedulerThread      : 时间：Wed Apr 22 20:06:02 CST 2020============>完成获取新数据：1
+2020-04-22 20:06:02.563  INFO 16652 --- [pool-1-thread-1] c.g.s.scheduler.MainSchedulerThread      : 定时任务主线程==========END==========》
